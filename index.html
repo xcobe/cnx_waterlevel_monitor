@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>CNX Water Level Monitoring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        // 生成时间戳
+        const timestamp = new Date().getTime();
+        // 动态加载 CSS
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = `styles.css?v=1.0.9&t=20240328&nocache=${timestamp}`;
+        document.head.appendChild(link);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <button id="refreshButton" class="refresh-button" title="刷新数据">↻</button>
+                <div class="header-text">
+                    <h1>CNX Water Level Monitoring</h1>
+                    <h2>清迈水位监测</h2>
+                    <p class="last-update">最后更新: <span id="lastUpdateTime">-</span></p>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="data-container">
+                <div class="loading" id="loadingIndicator">加载中...</div>
+                <div class="error" id="errorMessage" style="display: none;"></div>
+                <div class="data-list" id="dataList"></div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-content">
+                <p>数据来源：<a href="https://hydro-1.net/" target="_blank">Upper Northern Region Irrigation Hydrology Center</a></p>
+                <p class="disclaimer">Disclaimer: This website does not guarantee the accuracy of the data and is for reference only.</p>
+                <p class="visit-counter">Visits: <span id="visitCount">0</span></p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // 动态加载 JS
+        const script = document.createElement('script');
+        script.src = `script.js?v=1.0.9&t=20240328&nocache=${timestamp}`;
+        // 添加加载完成事件处理
+        script.onload = function() {
+            // 等待 DOM 完全加载
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    console.log('DOM loaded, initializing...');
+                    window.initialize();
+                });
+            } else {
+                console.log('DOM already loaded, initializing...');
+                window.initialize();
+            }
+        };
+        // 添加错误处理
+        script.onerror = function(error) {
+            console.error('Failed to load script.js:', error);
+            document.getElementById('errorMessage').textContent = 'Failed to load application script. Please refresh the page.';
+            document.getElementById('errorMessage').style.display = 'block';
+            document.getElementById('loadingIndicator').style.display = 'none';
+        };
+        document.body.appendChild(script);
+    </script>
+    <script>
+        // 访问计数器
+        const visitCounter = {
+            getCount() {
+                return parseInt(localStorage.getItem('visitCount') || '0');
+            },
+            increment() {
+                const count = this.getCount() + 1;
+                localStorage.setItem('visitCount', count.toString());
+                return count;
+            },
+            formatNumber(num) {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+        };
+        
+        // 更新访问计数
+        document.getElementById('visitCount').textContent = visitCounter.formatNumber(visitCounter.increment());
+    </script>
+</body>
+</html> 
