@@ -1,0 +1,66 @@
+{
+  "stations": [
+    {
+      "id": "P.1",
+      "name": "水文站1",
+      "apiUrl": "https://api.example.com/station/P.1",
+      "description": "示例水文站1",
+      "gis": {
+        "latitude": 22.3193,
+        "longitude": 114.1694,
+        "elevation": 10.5,
+        "location": "香港特别行政区",
+        "address": "香港中环",
+        "coordinateSystem": "WGS84"
+      }
+    },
+    {
+      "id": "P.2", 
+      "name": "水文站2",
+      "apiUrl": "https://api.example.com/station/P.2",
+      "description": "示例水文站2",
+      "gis": {
+        "latitude": 23.1291,
+        "longitude": 113.2644,
+        "elevation": 15.2,
+        "location": "广东省广州市",
+        "address": "广州市天河区",
+        "coordinateSystem": "WGS84"
+      }
+    },
+    {
+      "id": "P.93",
+      "name": "水文站93", 
+      "apiUrl": "https://api.example.com/station/P.93",
+      "description": "示例水文站93",
+      "gis": {
+        "latitude": 22.5431,
+        "longitude": 114.0579,
+        "elevation": 8.7,
+        "location": "广东省深圳市",
+        "address": "深圳市南山区",
+        "coordinateSystem": "WGS84"
+      }
+    }
+  ],
+  "apiConfig": {
+    "timeout": 30000,
+    "retries": 3,
+    "retryDelay": 5000,
+    "userAgent": "WaterLevelDataCollector/1.0"
+  },
+  "collectionConfig": {
+    "interval": 3600000,
+    "cleanupInterval": 604800000,
+    "maxRetentionDays": 7
+  },
+  "gisConfig": {
+    "defaultCoordinateSystem": "WGS84",
+    "mapProvider": "Google Maps",
+    "mapZoomLevel": 12,
+    "mapCenter": {
+      "latitude": 22.5431,
+      "longitude": 114.0579
+    }
+  }
+} 

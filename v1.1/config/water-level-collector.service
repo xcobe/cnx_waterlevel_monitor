@@ -1,0 +1,31 @@
+[Unit]
+Description=Water Level Data Collector Service
+Documentation=https://github.com/your-repo/water-level-alert
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=waterlevel
+Group=waterlevel
+WorkingDirectory=/opt/water-level-alert
+ExecStart=/usr/bin/node /opt/water-level-alert/data-collector.js
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=water-level-collector
+
+# 安全设置
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/water-level-alert/station_data_server
+
+# 环境变量
+Environment=NODE_ENV=production
+Environment=PORT=3001
+
+[Install]
+WantedBy=multi-user.target 
