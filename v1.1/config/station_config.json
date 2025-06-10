@@ -3,7 +3,6 @@
     {
       "id": "P.1",
       "name": "水文站1",
-      "apiUrl": "https://api.example.com/station/P.1",
       "description": "示例水文站1",
       "gis": {
         "latitude": 22.3193,
@@ -17,7 +16,6 @@
     {
       "id": "P.2", 
       "name": "水文站2",
-      "apiUrl": "https://api.example.com/station/P.2",
       "description": "示例水文站2",
       "gis": {
         "latitude": 23.1291,
@@ -31,7 +29,6 @@
     {
       "id": "P.93",
       "name": "水文站93", 
-      "apiUrl": "https://api.example.com/station/P.93",
       "description": "示例水文站93",
       "gis": {
         "latitude": 22.5431,
