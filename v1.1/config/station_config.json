@@ -3,6 +3,9 @@
     {
       "id": "P.1",
       "river": "水文站1",
+      "station_name": "บ้านแม่แต",
+      "water_name": "แม่น้ำปิง",
+      "river_basin": "ปิง",
       "description": "示例水文站1",
       "gis": {
         "latitude": 22.3193,
@@ -16,6 +19,9 @@
     {
       "id": "P.2", 
       "river": "水文站2",
+      "station_name": "บ้านแม่แต",
+      "water_name": "แม่น้ำปิง",
+      "river_basin": "ปิง",
       "description": "示例水文站2",
       "gis": {
         "latitude": 23.1291,
@@ -29,6 +35,9 @@
     {
       "id": "P.93",
       "river": "水文站93", 
+      "station_name": "บ้านแม่แต",
+      "water_name": "แม่น้ำปิง",
+      "river_basin": "ปิง",
       "description": "示例水文站93",
       "gis": {
         "latitude": 22.5431,
